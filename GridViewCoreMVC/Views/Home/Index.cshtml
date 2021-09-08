@@ -1,0 +1,30 @@
+﻿
+@addTagHelper *, LazZiya.TagHelpers
+@model PagedResult<Employee>
+<br />
+<table cellpadding="0" cellspacing="0" class="table table-bordered table-condensed">
+    <tr>
+        <th>Emp Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Job Title</th>
+    </tr>
+    @foreach (var products in Model.Results)
+    {
+        <tr>
+            <td>@products.EmpID</td>
+            <td>@products.FirstName</td>
+            <td>@products.LastName</td>
+            <td>@products.JobTitle</td>
+        </tr>
+    }
+</table>
+
+
+
+<paging page-no="@Model.CurrentPage"
+        page-size="@Model.PageSize"
+        total-records="@(Model.RowCount)">
+</paging>
+
+
